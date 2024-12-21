@@ -8,25 +8,50 @@
         font-size: 16px;
         font-family: "Poppins", monospace;
         background-color: #fff9c4;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
       }
 
+      /* Header Animation */
+      header {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+      }
       header img {
         max-width: 100%;
         max-height: 100%;
         margin: auto;
         display: block;
       }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
       .nav {
         display: flex;
         font-size: 14px;
         justify-content: flex-start;
-        margin: 0px;
-        padding: 0px 50px 0px 50px;
+        margin: 0;
+        padding: 0px 50px;
         background-color: #09515d;
+        animation: slideIn 0.5s ease-out;
+      }
+
+      @keyframes slideIn {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
       }
 
       .nav .navtab {
-        text-decoration: white;
+        text-decoration: none;
         padding: 10px;
         background-color: #09515d;
         transition: background-color 200ms;
@@ -35,43 +60,92 @@
       .nav .navtab:hover {
         background-color: #073942;
       }
+
       .nav a {
         text-decoration: none;
         text-align: center;
         color: white;
       }
+
       .nav a:active {
         color: #ffffff;
       }
 
       .button {
-        border-radius: 10px;
-        border-width: px;
-        border-style: solid;
+        display: inline-block;
+        padding: 12px 25px;
+        border-radius: 50px;
         background-color: #82502e;
-        width: fit-content;
-        padding: 10px;
-        transition: transform 50ms, background-color 50ms;
-      }
-
-      .button a {
-        text-decoration: none;
-        color: white;
+        color: rgb(253, 253, 253);
         text-align: center;
         font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
       }
+
       .button:hover {
-        transform: scale(0.9, 0.9);
+        transform: scale(1.1);
         background-color: #4d3626;
       }
+
+      /* Main Section */
+      main {
+        padding: 40px;
+        animation: fadeIn 3s forwards;
+      }
+
+      .main-section {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 30px 0;
+        animation: slideUp 0.5s ease-out;
+      }
+
+      @keyframes slideUp {
+        0% {
+          transform: translateY(75%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .main-section div {
+        margin-left: 20px;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        width: 30%;
+        transition: transform 0.3s ease;
+      }
+
+      .main-section div:hover {
+        transform: translateY(-10px);
+      }
+
       footer {
         font-size: 10px;
         text-align: center;
+        padding: 20px 0;
+        background-color: #09515d;
+        color: white;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <header id="#home">
+    <header id="home">
       <img src="images/BautistaCompanyBanner.png" />
     </header>
     <nav class="nav">
@@ -81,15 +155,8 @@
       <div class="navtab"><a href="#contact">Contact</a></div>
     </nav>
     <main>
-      <div
-        style="
-          display: flex;
-          justify-content: space-evenly;
-          padding-left: 30px;
-          padding-top: 30px;
-        "
-      >
-        <div style="margin-left: 20px" id="#services">
+      <section class="main-section">
+        <div id="services">
           <b>Services Offered:</b>
           <ul>
             <li>Island Hopping Tours</li>
@@ -99,7 +166,7 @@
             <li>Customized Travel Itineraries</li>
           </ul>
         </div>
-        <div style="margin-left: 20px" id="#promos">
+        <div id="promos">
           <b>Promotions:</b>
           <ul>
             <li>"3+1 Free" group packages.</li>
@@ -107,7 +174,7 @@
             <li>Special weekend rates for island hopping in Cebu.</li>
           </ul>
         </div>
-        <div style="margin-left: 20px">
+        <div>
           <b>Popular Packages:</b>
           <ul>
             <li><b>Manila</b>: Historic Intramuros Tour with Food Crawl</li>
@@ -117,17 +184,15 @@
             <li><b>Davao</b>: Mt. Apo Climbing Experience</li>
           </ul>
         </div>
-      </div>
+      </section>
       <hr />
-      <section style="padding: 5px 100px 15px 60px">
+      <section style="text-align: center; padding: 50px">
         <h1>Book Your Next Adventure Today</h1>
         <p>
           Explore the Philippines like never before with our exciting packages.
           Limited slots available for promo deals. Don't miss out!
         </p>
-        <div class="button">
-          <a href="#">Book Now</a>
-        </div>
+        <button class="button" id="booknow">Book Now</button>
       </section>
     </main>
     <hr />
@@ -137,22 +202,13 @@
           <h3>Contact Details:</h3>
         </div>
         <div style="padding-right: 75px">
-          <p>
-            <b>Manila:</b><br />
-            (+63) 123-4567
-          </p>
+          <p><b>Manila:</b><br />(+63) 123-4567</p>
         </div>
         <div style="padding-right: 75px">
-          <p>
-            <b>Cebu:</b><br />
-            (+63) 234-5678
-          </p>
+          <p><b>Cebu:</b><br />(+63) 234-5678</p>
         </div>
         <div style="padding-right: 75px">
-          <p>
-            <b>Davao:</b><br />
-            (+63) 345-6789
-          </p>
+          <p><b>Davao:</b><br />(+63) 345-6789</p>
         </div>
       </div>
     </section>
@@ -160,8 +216,7 @@
     <footer>
       <div>
         <p>
-          <a href="https://www.facebook.com/">Facebook</a>
-          |
+          <a href="https://www.facebook.com/">Facebook</a> |
           <a href="https://www.instagram.com/">Instagram</a>
         </p>
       </div>
